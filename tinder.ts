@@ -6,8 +6,8 @@ export class Tinder {
   private page: Page
   public like$: Subject<null>
   public pass$: Subject<null>
-  public nbMaches = 0
-  public nbMsgMaches = 0
+  public nbMatches = 0
+  public nbMsgMatches = 0
   public nbLikedMe = 0
 
   constructor(
@@ -89,7 +89,7 @@ export class Tinder {
       if (response.url().substr(0, matchesUrl.length) === matchesUrl) {
         try {
           const res: any = await response.json()
-          this.nbMaches = res.data.matches.length
+          this.nbMatches = res.data.matches.length
         } catch (e) {
           this.log('Matches error', e)
         }
@@ -97,7 +97,7 @@ export class Tinder {
       if (response.url().substr(0, msgMatchesUrl.length) === msgMatchesUrl) {
         try {
           const res: any = await response.json()
-          this.nbMsgMaches = res.data.matches.length
+          this.nbMsgMatches = res.data.matches.length
         } catch (e) {
           this.log('MatchesMsg error', e)
         }
@@ -186,6 +186,6 @@ export class Tinder {
   }
 
   totalMatches() {
-    return this.nbLikedMe + this.nbMaches + this.nbMsgMaches
+    return this.nbLikedMe + this.nbMatches + this.nbMsgMatches
   }
 }
