@@ -102,8 +102,8 @@ async function processAccount(
   await matchesSheet.addRow({
     account_name: account.name,
     date: dayjs().format('DD/MM/YYYY'),
-    matches: tinder.nbMaches,
-    msg_matches: tinder.nbMsgMaches,
+    matches: tinder.nbMatches,
+    msg_matches: tinder.nbMsgMatches,
     liked_you: tinder.nbLikedMe,
     total_matches: tinder.totalMatches(),
   })
